@@ -17,7 +17,7 @@ import logo from '../public/logo_busport.svg';
 
 const Login = () => {
   return (
-    <Container height="100vh" maxW="container.xl">
+    <Container bg="#ffffff" height="100vh" maxW="container.xl">
       <Flex height="100%" alignItems="center" justifyContent="center">
         <Flex width="450px" flexDir="column">
           <Flex alignItems="flex-end">
@@ -63,7 +63,7 @@ const Login = () => {
                 height="55px"
                 paddingX="23px"
                 color="#1E1E1E"
-                colorScheme="messenger"
+                colorScheme="messenger.500"
                 fontWeight="700"
                 fontSize="16px"
                 lineHeight="21px"
