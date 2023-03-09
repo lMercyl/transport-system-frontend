@@ -8,8 +8,6 @@ import {
   FormErrorMessage,
   Input,
   LinkBox,
-  LinkOverlay,
-  Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -63,7 +61,7 @@ const Login = () => {
                 height="55px"
                 paddingX="23px"
                 color="#1E1E1E"
-                colorScheme="messenger.500"
+                focusBorderColor="messenger.500"
                 fontWeight="700"
                 fontSize="16px"
                 lineHeight="21px"
