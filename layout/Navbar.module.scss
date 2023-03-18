@@ -1,0 +1,17 @@
+.navbarButton {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  svg {
+    transition: stroke 0.2s ease-in-out;
+  }
+
+  &:hover {
+    border-color: #0078ff;
+    background-color: #0078ff;
+    box-shadow: 0px 5px 10px -1px rgba(0, 120, 255, 0.57);
+
+    svg {
+      stroke: #ffffff;
+    }
+  }
+}

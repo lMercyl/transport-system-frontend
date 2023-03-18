@@ -8,8 +8,6 @@ import {
   FormErrorMessage,
   Input,
   LinkBox,
-  LinkOverlay,
-  Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,7 +22,7 @@ const Login = () => {
             <Box mr="25px">
               <Box color="#1E1E1E" fontWeight="700" fontSize="24px" lineHeight="32px">
                 Войти в систему{' '}
-                <Box color="#5081FF" display="inline">
+                <Box color="messenger.500" display="inline">
                   Busport
                 </Box>
               </Box>
@@ -36,7 +34,7 @@ const Login = () => {
           <Box mt="10px" mb="55px">
             <Box color="rgba(30, 30, 30, 0.32)" fontWeight="700" fontSize="14px" lineHeight="18px">
               У вас нет аккаунта?{' '}
-              <LinkBox display="inline" cursor="pointer" color="#5081FF">
+              <LinkBox display="inline" cursor="pointer" color="messenger.500">
                 <Link href="/signup">Зарегистироваться</Link>
               </LinkBox>
             </Box>
@@ -63,7 +61,7 @@ const Login = () => {
                 height="55px"
                 paddingX="23px"
                 color="#1E1E1E"
-                colorScheme="messenger.500"
+                focusBorderColor="messenger.500"
                 fontWeight="700"
                 fontSize="16px"
                 lineHeight="21px"
@@ -83,7 +81,7 @@ const Login = () => {
                 </FormControl>
               </Box>
               <Box fontWeight="700" fontSize="14px" lineHeight="18px">
-                <LinkBox display="inline" cursor="pointer" color="#5081FF">
+                <LinkBox display="inline" cursor="pointer" color="messenger.500">
                   <Link href="/signup">Сменить пароль</Link>
                 </LinkBox>
               </Box>
