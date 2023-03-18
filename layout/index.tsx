@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
           <Navbar />
         </aside>
       </Box>
-      <Flex height="100vh" width="100%" justifyContent="center">
+      <Flex height="100%" width="100%" justifyContent="center">
         <Container maxW="container.lg">{children}</Container>
       </Flex>
     </Flex>

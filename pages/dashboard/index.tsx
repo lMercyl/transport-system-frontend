@@ -1,6 +1,7 @@
 import Layout from '../../layout';
 import { Flex, Grid, Text, Box } from '@chakra-ui/react';
 import { HiOutlineBell, HiOutlineCalendar } from 'react-icons/hi';
+import styles from './Dashboard.module.scss';
 
 const Home = () => {
   return (
@@ -34,6 +35,7 @@ const Home = () => {
             </Text>
           </Flex>
           <Box
+            className={styles.notifButton}
             position="relative"
             p="12px"
             borderStyle="solid"
