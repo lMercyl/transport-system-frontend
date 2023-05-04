@@ -2,6 +2,10 @@ import Layout from '../../layout';
 import { Flex, Grid, Text, Box } from '@chakra-ui/react';
 import { HiOutlineBell, HiOutlineCalendar } from 'react-icons/hi';
 import styles from './Dashboard.module.scss';
+import { GetServerSideProps } from 'next';
+import { getStore } from '../../store';
+import { checkAuth } from '../../store/auth/api';
+import axios from 'axios';
 
 const Home = () => {
   return (
@@ -54,6 +58,37 @@ const Home = () => {
       </Box>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
+  const URL_API = 'http://localhost:7777';
+
+  const token = context.req.headers.cookie;
+  if (token) {
+    try {
+      await axios.get(`${URL_API}/auth/me`, {
+        headers: {
+          Cookie: token,
+        },
+      });
+    } catch (error) {
+      return {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      };
+    }
+  } else {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
 };
 
 export default Home;

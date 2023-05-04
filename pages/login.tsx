@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Button,
@@ -12,8 +13,38 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../public/logo_busport.svg';
+import { useAppDispatch, useAppSelector } from '../hooks/selectorHooks';
+import { login } from '../store/auth/api';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { selectIsAuthenticated } from '../store/auth/selector';
+import { useRouter } from 'next/router';
+
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+
+  React.useEffect(() => {}, []);
+
+  const { handleSubmit, setValue } = useForm<LoginFormData>();
+
+  const handleSubmitLogin: SubmitHandler<LoginFormData> = (data) => {
+    const { email, password } = data;
+    dispatch(login(data));
+  };
+
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/dashboard');
+    }
+  }, [isAuthenticated]);
+
   return (
     <Container bg="#ffffff" height="100vh" maxW="container.xl">
       <Flex height="100%" alignItems="center" justifyContent="center">
@@ -39,7 +70,7 @@ const Login = () => {
               </LinkBox>
             </Box>
           </Box>
-          <form>
+          <form onSubmit={handleSubmit(handleSubmitLogin)}>
             <FormControl mb="25px">
               <Input
                 height="55px"
@@ -53,6 +84,7 @@ const Login = () => {
                 borderWidth="2px"
                 placeholder="почта"
                 type="email"
+                onChange={(event) => setValue('email', event.target.value)}
               />
               <FormErrorMessage></FormErrorMessage>
             </FormControl>
@@ -69,6 +101,7 @@ const Login = () => {
                 borderWidth="2px"
                 placeholder="пароль"
                 type="password"
+                onChange={(event) => setValue('password', event.target.value)}
               />
               <FormErrorMessage></FormErrorMessage>
             </FormControl>
