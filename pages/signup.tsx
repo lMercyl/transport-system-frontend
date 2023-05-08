@@ -16,7 +16,7 @@ import logo from '../public/logo_busport.svg';
 import { useAppDispatch, useAppSelector } from '../hooks/selectorHooks';
 import { signup } from '../store/auth/api';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { selectIsAuthenticated } from '../store/auth/selector';
+import { selectAuth } from '../store/auth/selector';
 import { useRouter } from 'next/router';
 
 interface SignupFormData {
@@ -32,7 +32,7 @@ const Signup = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const { isAuthenticated, loading, error } = useAppSelector(selectAuth);
 
   const { handleSubmit, setValue } = useForm<SignupFormData>();
 

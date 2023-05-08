@@ -16,7 +16,7 @@ import logo from '../public/logo_busport.svg';
 import { useAppDispatch, useAppSelector } from '../hooks/selectorHooks';
 import { login } from '../store/auth/api';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { selectIsAuthenticated } from '../store/auth/selector';
+import { selectAuth } from '../store/auth/selector';
 import { useRouter } from 'next/router';
 
 interface LoginFormData {
@@ -28,7 +28,7 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const { isAuthenticated, loading, error } = useAppSelector(selectAuth);
 
   React.useEffect(() => {}, []);
 

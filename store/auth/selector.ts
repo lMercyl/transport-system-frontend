@@ -1,5 +1,3 @@
-import { AuthState } from './types';
+import { RootState } from './../index';
 
-export const selectIsAuthenticated = (state: { auth: AuthState }) => state.auth.isAuthenticated;
-export const selectLoading = (state: { auth: AuthState }) => state.auth.loading;
-export const selectError = (state: { auth: AuthState }) => state.auth.error;
+export const selectAuth = (state: RootState) => state.auth;
