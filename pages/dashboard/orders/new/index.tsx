@@ -113,7 +113,7 @@ const NewOrderPage = ({ info }: InferGetServerSidePropsType<typeof getServerSide
               Новая заявка
             </Text>
             <Flex>
-              <Button borderRadius="10px">
+              <Button p="10px" borderRadius="50%">
                 <HiOutlineX />
               </Button>
             </Flex>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Button, Flex, Text, Box } from '@chakra-ui/react';
+import { Button, Flex, Text, Box, Grid, GridItem } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
 import Layout from '../../../layout';
 import React from 'react';
@@ -10,52 +10,71 @@ const URL_API = 'http://localhost:7777';
 const ProfilePage = ({ info }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <Layout>
-      <Flex paddingY="35px" flexDirection="column">
-        <Text marginBottom="20px" color="#ffffff" lineHeight="32px" fontSize="24px" fontWeight="700">
-          Профиль
-        </Text>
-        <Flex flexDirection="column" p="25px" width="100%" backgroundColor="#ffffff" borderRadius="15px">
-          <Flex marginBottom="15px">
-            <Text>Почта: {info.email}</Text>
-          </Flex>
-          <Flex marginBottom="15px">
-            <Text>Имя: {info.firstName}</Text>
-          </Flex>
-          <Flex marginBottom="15px">
-            <Text>Фамилия: {info.lastName}</Text>
-          </Flex>
-          <Flex marginBottom="15px">
-            <Text>Телефон: {info.phone}</Text>
-          </Flex>
-          <Flex flexDirection="column">
-            <Flex
-              paddingY="5px"
-              paddingX="15px"
-              justifyContent="space-between"
-              borderRadius="10px"
-              backgroundColor="#f1f1f1">
-              <Box>
-                <Text>Вид: Автобус</Text>
-              </Box>
-              <Box>
-                <Text>Марка: Лада</Text>
-              </Box>
-              <Box>
-                <Text>Модель: Веста</Text>
-              </Box>
-            </Flex>
-            <Button
-              marginTop="15px"
-              colorScheme="messenger"
-              fontWeight="700"
-              fontSize="16px"
-              lineHeight="21px"
-              borderRadius="10px">
-              добавить транспорт
-            </Button>
-          </Flex>
+      <Box width="100%">
+        <Flex paddingY="35px" flexDirection="column">
+          <Text marginBottom="20px" color="#ffffff" lineHeight="32px" fontSize="24px" fontWeight="700">
+            Профиль
+          </Text>
+          <Grid gap="20px" width="100%" gridTemplateColumns="repeat(2, 1fr)">
+            <GridItem>
+              <Flex flexDirection="column" p="25px" width="100%" backgroundColor="#ffffff" borderRadius="15px">
+                <Flex marginBottom="15px">
+                  <Text>Почта: {info.email}</Text>
+                </Flex>
+                <Flex marginBottom="15px">
+                  <Text>Имя: {info.firstName}</Text>
+                </Flex>
+                <Flex marginBottom="15px">
+                  <Text>Фамилия: {info.lastName}</Text>
+                </Flex>
+                <Flex marginBottom="15px">
+                  <Text>Телефон: {info.phone}</Text>
+                </Flex>
+                <Button
+                  marginTop="15px"
+                  colorScheme="messenger"
+                  fontWeight="700"
+                  fontSize="16px"
+                  lineHeight="21px"
+                  borderRadius="10px">
+                  Редактировать
+                </Button>
+              </Flex>
+            </GridItem>
+            <GridItem>
+              <Flex flexDirection="column">
+                <Flex mb="15px" p="25px" width="100%" backgroundColor="#ffffff" borderRadius="15px">
+                  <Button
+                    width="100%"
+                    colorScheme="messenger"
+                    fontWeight="700"
+                    fontSize="16px"
+                    lineHeight="21px"
+                    borderRadius="10px">
+                    Добавить транспорт
+                  </Button>
+                </Flex>
+                <Flex
+                  paddingY="5px"
+                  paddingX="15px"
+                  justifyContent="space-between"
+                  borderRadius="10px"
+                  backgroundColor="#f1f1f1">
+                  <Box>
+                    <Text>Вид: Автобус</Text>
+                  </Box>
+                  <Box>
+                    <Text>Марка: Лада</Text>
+                  </Box>
+                  <Box>
+                    <Text>Модель: Веста</Text>
+                  </Box>
+                </Flex>
+              </Flex>
+            </GridItem>
+          </Grid>
         </Flex>
-      </Flex>
+      </Box>
     </Layout>
   );
 };

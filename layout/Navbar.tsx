@@ -69,7 +69,7 @@ const Navbar = () => {
           </Box>
         </Link>
       </Grid>
-      <Link href="/">
+      <Link href="/login">
         <Box
           className={styles.navbarButton}
           p="12px"

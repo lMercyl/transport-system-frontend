@@ -30,8 +30,6 @@ const Login = () => {
 
   const { isAuthenticated, loading, error } = useAppSelector(selectAuth);
 
-  React.useEffect(() => {}, []);
-
   const { handleSubmit, setValue } = useForm<LoginFormData>();
 
   const handleSubmitLogin: SubmitHandler<LoginFormData> = (data) => {
